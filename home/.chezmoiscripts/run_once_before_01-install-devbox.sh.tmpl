@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+if command -v devbox &>/dev/null; then
+  echo "devbox already installed, skipping"
+  exit 0
+fi
+
+echo "Installing devbox..."
+curl -fsSL https://get.jetify.com/devbox | bash -s -- -f

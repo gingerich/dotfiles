@@ -1,12 +1,4 @@
-# Start configuration added by Zim install {{{
-#
-# This is not sourced during shell startup, and it's only used to configure the
-# zimfw plugin manager.
-#
-
-#
 # Modules
-#
 
 # Sets sane Zsh built-in environment options.
 zmodule environment
@@ -23,20 +15,18 @@ zmodule archive
 # Configures fzf for faster fetching of files and directories names.
 zmodule fzf
 # All kubectl aliases in one function.
-zmodule k
+# zmodule k  # conflicts with completions module
 # Shown when there is no command and user presses ENTER.
 zmodule magic-enter
 # Provides a convenient way to load ssh-agent.
-zmodule ssh
+# zmodule ssh  # 1Password handles SSH agent
 # Adds aliases for Homebrew.
 zmodule homebrew
 
 # chezmoi
 zmodule joke/zim-chezmoi
 
-#
 # Prompt
-#
 
 # Formats the current working directory to be used by prompts.
 zmodule prompt-pwd
@@ -46,9 +36,7 @@ zmodule git-info
 # A minimal fork of subnixr's minimal prompt theme.
 zmodule minimal
 
-#
 # Completion
-#
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
@@ -56,9 +44,7 @@ zmodule zsh-users/zsh-completions --fpath src
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
 
-#
 # Modules that must be initialized last
-#
 
 # Fish-like syntax highlighting for Zsh.
 # zsh-users/zsh-syntax-highlighting must be sourced after completion
@@ -68,5 +54,3 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # Fish-like autosuggestions for Zsh.
 zmodule zsh-users/zsh-autosuggestions
-# }}} End configuration added by Zim install
-

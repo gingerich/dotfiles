@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.2/.schema/devbox.schema.json",
+  "packages": [
+    "git@latest",
+    "tmux@latest",
+    "gh@latest",
+    "_1password-cli@latest",
+    "neovim@latest",
+    "ripgrep@latest",
+    "fzf@latest",
+    "yazi@latest",
+    "glow@latest",
+    "claude-code@latest",
+    "fabric-ai@latest",
+    "gemini-cli@latest",
+    "alacritty@latest",
+    "crush@latest"
+  ]
+}

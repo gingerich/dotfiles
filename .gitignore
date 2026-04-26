@@ -1,0 +1,20 @@
+# AI tools
+.specstory/
+
+# macOS
+.DS_Store
+
+# chezmoi
+# Local chezmoi config (generated from .chezmoi.toml.tmpl, machine-specific)
+.chezmoidata/
+
+# devbox
+.devbox/
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Test artifacts
+test/.docker-build/
