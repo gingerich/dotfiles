@@ -24,7 +24,11 @@ These require interactive auth and can't be fully automated:
 
 1. Sign into 1Password desktop app
 2. Enable SSH Agent in 1Password settings (Developer > Set Up SSH Agent)
-3. Run `op plugin init gh` to connect GitHub CLI to 1Password
+3. Set up 1Password CLI plugins:
+   ```bash
+   op plugin init gh
+   op plugin init brew
+   ```
 
 ## How It Works
 

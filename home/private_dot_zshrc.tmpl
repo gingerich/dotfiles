@@ -1,5 +1,13 @@
-# SSH agent
-zstyle ':zim:ssh' ids 'id_ed25519'
+# -----------
+# Environment
+# -----------
+
+EDITOR=vim
+
+alias dbx=devbox
+alias dbxg="devbox global"
+alias dbxr="devbox run"
+alias dbxs="devbox shell"
 
 # -----------------
 # Zsh configuration
@@ -23,6 +31,13 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# 1Password SSH Agent
+{{ if eq .chezmoi.os "darwin" -}}
+SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{ else -}}
+SSH_AUTH_SOCK=~/.1password/agent.sock
+{{ end -}}
 
 # ------------------
 # Initialize modules
@@ -59,7 +74,7 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
 # -----------
-# Devbox
+# Tools
 # -----------
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -68,4 +83,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}
 
 # devbox global shell hook
-eval "$(devbox global shellenv)"
+eval "$(devbox global shellenv --init-hook)"
+
+# 1Password CLI plugins (gh, brew, etc.)
+[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
