@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+# zimrc hash: {{ include "private_dot_zimrc" | sha256sum }}
+
+ZIM_HOME="${ZDOTDIR:-${HOME}}/.zim"
+
+# Ensure zimfw is available
+if [[ ! -e "${ZIM_HOME}/zimfw.zsh" ]]; then
+  echo "Downloading zimfw..."
+  mkdir -p "${ZIM_HOME}"
+  curl -fsSL -o "${ZIM_HOME}/zimfw.zsh" \
+    https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
+
+echo "Installing Zim modules..."
+zsh -c "source ${ZIM_HOME}/zimfw.zsh install"

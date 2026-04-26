@@ -1,0 +1,8 @@
+{{- $profile := promptChoiceOnce . "profile" "Machine profile (personal/work)" (list "personal" "work") -}}
+
+[data]
+  profile = {{ $profile | quote }}
+
+[merge]
+  command = "nvim"
+  args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"]

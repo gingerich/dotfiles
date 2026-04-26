@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+
+# Read existing config from stdin (chezmoi passes current file contents)
+existing="$(cat)"
+
+{{ if eq .chezmoi.os "darwin" -}}
+AGENT_SOCK="~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{ else -}}
+AGENT_SOCK="~/.1password/agent.sock"
+{{ end -}}
+
+MARKER="# chezmoi:1password-agent"
+
+# If our managed block already exists, pass through unchanged
+if echo "$existing" | grep -qF "$MARKER"; then
+  echo "$existing"
+  exit 0
+fi
+
+# Append our block to the existing config
+if [ -n "$existing" ]; then
+  echo "$existing"
+  echo ""
+fi
+
+cat <<EOF
+$MARKER
+Host *
+    IdentityAgent "$AGENT_SOCK"
+EOF

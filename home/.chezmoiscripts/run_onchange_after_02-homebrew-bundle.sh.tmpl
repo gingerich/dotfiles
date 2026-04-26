@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+{{ if ne .chezmoi.os "darwin" -}}
+# Homebrew is macOS only
+exit 0
+{{ end -}}
+
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+
+echo "Running brew bundle..."
+brew bundle --file="${HOME}/Brewfile" --no-lock

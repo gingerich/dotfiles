@@ -1,0 +1,26 @@
+[user]
+	name = Marlin Gingerich
+	email = marlin@gingerich.io
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfGK9X/G6Abf+F8D6cXOYc586FkDIn0jrTFmpyWsDtl
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+{{- if eq .chezmoi.os "darwin" }}
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{- else }}
+	program = /opt/1Password/op-ssh-sign
+{{- end }}
+
+[commit]
+	gpgsign = true
+
+[init]
+	defaultBranch = main
+
+[diff]
+	tool = vimdiff
+
+[mergetool "vimdiff"]
+	path = nvim

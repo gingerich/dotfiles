@@ -1,0 +1,13 @@
+# Taps
+tap "homebrew/cask-fonts"
+
+# Formulas
+brew "ffmpeg"
+brew "mas"
+
+# Casks
+cask "amethyst"
+cask "bruno"
+cask "font-fira-code-nerd-font"
+cask "vlc"
+cask "warp"
