@@ -1,0 +1,11 @@
+astro-build.astro-vscode
+denoland.vscode-deno
+eamodio.gitlens
+golang.go
+google.geminicodeassist
+jakebecker.elixir-ls
+jetpack-io.devbox
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode.remote-explorer
+tamasfe.even-better-toml

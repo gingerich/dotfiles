@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+# extensions hash: {{ include "dot_config/vscode/extensions.txt" | sha256sum }}
+
+if ! command -v code &>/dev/null; then
+  echo "VSCode (code) not on PATH, skipping extension install"
+  exit 0
+fi
+
+echo "Installing VSCode extensions..."
+while IFS= read -r ext; do
+  [[ -z "$ext" ]] && continue
+  code --install-extension "$ext" --force 2>/dev/null || echo "  Failed: $ext"
+done < "${HOME}/.config/vscode/extensions.txt"
